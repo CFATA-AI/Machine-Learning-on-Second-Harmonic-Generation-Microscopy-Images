@@ -3,11 +3,23 @@
 import numpy as np, pandas as pd, sklearn.ensemble as ske
 import matplotlib.pyplot as plt
 
+from sklearn.decomposition import PCA
+from sklearn.preprocessing import StandardScaler
+from sklearn.svm import SVC
+from sklearn.inspection import DecisionBoundaryDisplay
+
 df=pd.read_excel("features.xlsx")   
 df = df.dropna()
 Y = df['ideal'] 
 del df['ideal'] 
-del df['Muestra']
+del df['Muestra']        
+
+lista = ['Mean', 'Std', 'Skew', 'Curtosis', 'Sum','% I4', '% mean-std', 'Mean/mode', 'Mean/std',] 
+
+df = df[lista] 
+Names = df.columns
+scaler = StandardScaler()  
+scaled_data = scaler.fit_transform(df) 
 
 X = df
 
