@@ -8,13 +8,13 @@ from sklearn.preprocessing import StandardScaler
 from sklearn.svm import SVC
 from sklearn.inspection import DecisionBoundaryDisplay
 
-df=pd.read_excel("features.xlsx")   
+df=pd.read_excel("solo_zonas.xlsx")   
 df = df.dropna()
 Y = df['ideal'] 
 del df['ideal'] 
 del df['Muestra']        
 
-lista = ['Mean', 'Std', 'Skew', 'Curtosis', 'Sum','% I4', '% mean-std', 'Mean/mode', 'Mean/std',] 
+lista = ['Mean', 'Mode', 'Std', 'Kurtosis', 'Skew' ,'Sum','% I', 'Mean/std', 'Mode/std', 'Sum/std', '% I/std', 'Skew//std'] 
 
 df = df[lista] 
 Names = df.columns
